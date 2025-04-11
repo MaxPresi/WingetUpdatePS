@@ -15,7 +15,7 @@ function Install-WinGetClientModule {
     } else {
         # Install NuGet package provider, which is a requirement to install the module.
         Write-Host "Installing NuGet..."
-        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Register-PackageSource -Name "NuGet" -Location "https://api.nuget.org/v3/index.json" -ProviderName NuGet
 
         # Check if NuGet installed successfully.
         if ($?) {
